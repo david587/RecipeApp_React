@@ -1,4 +1,7 @@
-import {useState, useRef} from "react"
+import {useState, useRef, useEffect} from "react"
+import { useFetch } from "../../hooks/useFetch"
+import { useHistory } from "react-router-dom"
+
 
 //styles
 import "./Create.css"
@@ -12,12 +15,16 @@ export default function Create() {
   const [ingredients, setIngredients] = useState([])
   // create a ref to focuse this form
   const ingredientInput = useRef(null)
+  const history = useHistory()
+
+  const { postData, data, error } = useFetch(" http://localhost:3000/recipes","POST")
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(title,method,cookingTime, ingredients);
+    //we pass the arguments
+    postData({ title, ingredients, method ,  cookingTime: cookingTime + "minutes"})
   }
-
+  
   const handleAdd = (e) =>{
     e.preventDefault()
     //without , and unique
@@ -31,6 +38,13 @@ export default function Create() {
     ingredientInput.current.focus()
 
   }
+  //redirect the the user when we get response
+  useEffect(()=>{
+    if(data){
+      history.push("/")
+    }
+  },[data])
+
   return (
     <div className="create">
        <h2 className="page-title">Add a new Recipe</h2>
