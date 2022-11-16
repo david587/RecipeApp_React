@@ -64,6 +64,18 @@
       "method": "bowl",
       "cookingTime": "40minutes",
       "id": "7wjVoGA"
+    },
+    {
+      "title": "perec",
+      "ingredients": [
+        "base",
+        "salt",
+        "water",
+        "flour"
+      ],
+      "method": "make it:)",
+      "cookingTime": "5minutes",
+      "id": "Mdg9ZLp"
     }
   ]
 }
