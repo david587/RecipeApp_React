@@ -1,3 +1,4 @@
+import React from "react"
 /* styles */
 import { useState } from "react"
 import { useHistory } from "react-router-dom"
@@ -11,8 +12,8 @@ export default function Searchbar() {
         e.preventDefault()
 
         history.push(`/search?q=${term}`)
-
     }
+
   return (
     <div className="searchbar">
         <form onSubmit={handleSubmit}>

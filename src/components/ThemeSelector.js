@@ -1,3 +1,4 @@
+import React from "react"
 import { useTheme } from "../hooks/useTheme"
 import modeIcon from "../assets/mode-icon.svg"
 
